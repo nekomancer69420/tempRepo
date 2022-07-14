@@ -3,7 +3,7 @@
 local among, us, _, __, ___, _____, mwa = "us"
 
 
-
+// firstly just get a gun from another player by reparenting it and then jus name it to whatever gun u want
 
 among = hookfunction("here i forgot the function path for unequipping but yeah", function() return tostring("owo") end)
 // if u dont know whats hookfunction: https://x.synapse.to/docs/reference/hooking.html
