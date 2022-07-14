@@ -32,6 +32,7 @@ __ = game.Players.LocalPlayer.Character.ChildRemoved:connect(function(neko)
         --// first function parameter argument is basically the remote's path and second is just the table containing the arguments
     end
 end)
+--// connection is stored as a variable here sooo u can disconnect in the script when equip thingy is toggled off
 
 // if u wanna patch just check if player owns the gun that is fired to server ok mate :)
 
