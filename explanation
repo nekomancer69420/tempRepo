@@ -1,1 +1,61 @@
-11
+--// equip exploit [[__keyword = {"equip", "free", "gun"}]]
+
+local among, us, _, __, ___, _____, mwa = "us"
+
+
+
+
+among = hookfunction("here i forgot the function path for unequipping but yeah", function() return tostring("owo") end)
+// if u dont know whats hookfunction: https://x.synapse.to/docs/reference/hooking.html
+
+// alternative methods could be setconstant, blocking the unequip remote from firing (which is what they all do)
+// basically to block the remote just hook __namecall metamethod of the remote's server fire method and make it return nil
+// (^^basically the lua vm is unable to call __namecall to call invoke/fire functions causing it not to fire at all)
+// hookmetamethod can also be found at the same link above :D
+
+
+// checking if unequip remote is blocked by firing a value to server along with the gun name/adding a remote key/checking if the unequip function exists/any clientsided check is bad- dont do it
+
+// exploiters can destroy the gun model and reset their anims by just manually firing the unequip remote and just resetting the humanoid's animationsss
+
+_ = game.Players.LocalPlayer.Character.ChildAdded:connect(function(neko)
+    if game["ReplicatedStorage"]["folder containing all the gun models"]:FindFirstChild(neko.Name) then
+        betterFireInvoke.SendToServer(game["ReplicatedStorage"]["GunSystem"]["Remotes"]["Equip"], {neko.Name})
+        --// sendtoserver is a custom func and it bqasically just is a better remote firing thingy
+        --// first function parameter argument is basically the remote's path and second is just the table containing the arguments to fire
+    end
+end)
+__ = game.Players.LocalPlayer.Character.ChildRemoved:connect(function(neko)
+    if game["ReplicatedStorage"]["folder containing all the gun models"]:FindFirstChild(neko.Name) then
+        betterFireInvoke.SendToServer(game["ReplicatedStorage"]["GunSystem"]["Remotes"]["Unequip"], {neko.Name})
+        --// sendtoserver is a custom func and it bqasically just is a better remote firing thingy
+        --// first function parameter argument is basically the remote's path and second is just the table containing the arguments
+    end
+end)
+
+// if u wanna patch just check if player owns the gun that is fired to server ok mate :)
+
+
+--// crash exploit [[__keyword = {"crash", "lag", "ddos",}]]
+
+// same with the free gun exploit above.+\]'
+
+--// easy bypass
+["ok basically just make a loop on the player's inv and clone their gun and bam"]:Clone() --// 1 line vs the whole dev team wtf
+game["Players"]["LocalPlayer"]["Backpack"]:GetChildren()[1]:Destroy() --// remove keycard and real gun (you dont even need a real/bought gun)
+// just parent it from someone else's inv lol
+game["Players"]["LocalPlayer"]["Backpack"]:GetChildren()[1]:Destroy()
+
+runservice.stepped:connect(function()
+    humanoid:equiptools()
+    humanoid:unequiptools()
+end) -- // sorry am lazy to type :c
+-- boom server go bye bye
+
+ok thanks for listening to my tedtalk bye
+
+
+
+
+
+    
