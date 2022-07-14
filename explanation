@@ -41,7 +41,7 @@ end)
 // same with the free gun exploit above.+\]'
 
 --// easy bypass
-["ok basically just make a loop on the player's inv and clone their gun and bam"]:Clone() --// 1 line vs the whole dev team wtf
+["clone ur gun and bam do this more than once if they want uwuo kok"]:Clone() --// 1 line vs the whole dev team wtf
 game["Players"]["LocalPlayer"]["Backpack"]:GetChildren()[1]:Destroy() --// remove keycard and real gun (you dont even need a real/bought gun)
 // just parent it from someone else's inv lol
 game["Players"]["LocalPlayer"]["Backpack"]:GetChildren()[1]:Destroy()
