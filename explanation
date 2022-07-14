@@ -23,6 +23,7 @@ _ = game.Players.LocalPlayer.Character.ChildAdded:connect(function(neko)
         betterFireInvoke.SendToServer(game["ReplicatedStorage"]["GunSystem"]["Remotes"]["Equip"], {neko.Name})
         --// sendtoserver is a custom func and it bqasically just is a better remote firing thingy
         --// first function parameter argument is basically the remote's path and second is just the table containing the arguments to fire
+        --// sorry i copypasted from the script itself lol
     end
 end)
 __ = game.Players.LocalPlayer.Character.ChildRemoved:connect(function(neko)
